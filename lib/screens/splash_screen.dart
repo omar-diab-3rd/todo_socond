@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_socond/common/app_colors.dart';
 import 'package:todo_socond/screens/home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -6,13 +7,13 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: 3) ,()
+    Future.delayed(const Duration(seconds: 3) ,()
     {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context)=>HomeScreen()));
+      Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>HomeScreen()));
     });
     return Container(
-      color:const Color(0xffDFECDB),
-      child: Image(image: AssetImage("assets/images/logo@3x (1).png")),
+      color: AppColors.bglight,
+      child: const Image(image: AssetImage("assets/images/logo@3x (1).png")),
     );
   }
 }
