@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_socond/common/widgets/custom_scaffold_bg.dart';
+import 'package:todo_socond/screens/widgets/bottom_sheet_form.dart';
 import 'package:todo_socond/taps/settings/settings_tap.dart';
 import 'package:todo_socond/taps/tasks/tasks_tap.dart';
 
@@ -11,23 +13,22 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tapsList = [
-     const TasksTap() ,
-     const SettingsTap()];
+       TasksTap() ,
+      const SettingsTap()];
      int currentTapIndex = 0 ;
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return  CustomScaffoldBg(
       appBar: AppBar(
-        title:  Text("To Do List",
-         style: Theme.of(context).textTheme.titleLarge,) ,
+        title:const Text("TODO List"),
       ),
       bottomNavigationBar: BottomAppBar(
         shape:const  CircularNotchedRectangle(),
         notchMargin: 20,
         padding: const EdgeInsets.all(0),
         clipBehavior: Clip.hardEdge,
-        elevation: 30,
-        shadowColor: Colors.black,
+        elevation: 115,
+        shadowColor: Colors.blue,
         child: BottomNavigationBar( 
           onTap: (value) {
             currentTapIndex = value ;
@@ -48,12 +49,20 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: (){},
+          onPressed: (){
+            showModalBottomSheet(
+              isScrollControlled: true,
+              context: context, builder: (context )
+            {return BottomSheetForm();
+            });
+             
+          },
           child: const Icon(
             Icons.add ,
             size: 35,),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+         body: tapsList[currentTapIndex],
     );
   }
 }

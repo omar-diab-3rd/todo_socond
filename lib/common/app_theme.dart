@@ -8,16 +8,25 @@ class AppTheme {
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryColor),
         scaffoldBackgroundColor: AppColors.bglight ,
 
+         
+
         appBarTheme: AppBarTheme(
           color: AppColors.primaryColor,
           foregroundColor: Colors.white,
           centerTitle: false,
-          elevation: 30 ,
-          shadowColor: Colors.black
         ),
          
-         textTheme: const TextTheme(
-          titleLarge:TextStyle(
+         textTheme:  TextTheme(
+          bodyMedium:const TextStyle(
+            fontWeight: FontWeight.w700 ,
+            fontSize: 14 ,
+          ) ,
+          titleMedium:TextStyle(
+            color: AppColors.primaryColor,
+            fontWeight: FontWeight.w700 ,
+            fontSize: 18 ,
+          )  ,
+          titleLarge:const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold
           ) 
